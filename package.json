@@ -1,0 +1,52 @@
+{
+  "name": "@heartyoh/connectors",
+  "description": "connectors library",
+  "license": "MIT",
+  "author": "heartyoh@hatiolab.com",
+  "version": "0.0.1",
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
+  "publishConfig": {
+    "access": "public",
+    "@operato:registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heartyoh/connectors.git"
+  },
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "tsc",
+    "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
+    "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@hatiolab/prettier-config": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.4.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  },
+  "prettier": "@hatiolab/prettier-config",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
